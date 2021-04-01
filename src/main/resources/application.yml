@@ -1,0 +1,25 @@
+service:
+  topics:
+    consume-from: in
+    produce-to: out
+
+spring:
+  kafka:
+    clientId: example-client-id
+    consumer:
+      group-id: example-consumer-group
+      max-poll-records: 1
+    properties:
+      security:
+        protocol: SSL
+    ssl:
+      protocol: TLS
+
+---
+
+spring:
+  profiles: local
+  kafka:
+    properties:
+      security:
+        protocol: PLAINTEXT
